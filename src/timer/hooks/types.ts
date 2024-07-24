@@ -1,7 +1,7 @@
 export type TimeProps = {
-  hours?: number;
-  minutes?: number;
-  seconds?: number;
+  hours?: ZERO_TO_NINETY_NINE;
+  minutes?: ZERO_TO_FIFTY_NINE;
+  seconds?: ZERO_TO_FIFTY_NINE;
 };
 
 export type UseCountdownProps = {
@@ -30,3 +30,21 @@ export type UseIntervalReturn = {
   stoped?: boolean;
   started?: boolean;
 };
+
+type CreateArrayWithLengthX<
+  LENGTH extends number,
+  ACC extends unknown[] = [],
+> = ACC['length'] extends LENGTH
+  ? ACC
+  : CreateArrayWithLengthX<LENGTH, [...ACC, 1]>;
+
+type NumericRange<
+  START_ARR extends number[],
+  END extends number,
+  ACC extends number = never,
+> = START_ARR['length'] extends END
+  ? ACC | END
+  : NumericRange<[...START_ARR, 1], END, ACC | START_ARR['length']>;
+
+export type ZERO_TO_FIFTY_NINE = NumericRange<CreateArrayWithLengthX<0>, 59>;
+export type ZERO_TO_NINETY_NINE = NumericRange<CreateArrayWithLengthX<0>, 99>;

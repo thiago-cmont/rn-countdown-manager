@@ -1,9 +1,9 @@
-import { View, type ViewProps, type ViewStyle } from 'react-native';
+import { StyleSheet, View, type ViewProps, type ViewStyle } from 'react-native';
 import { type CustomStyle, type Sizes } from '../types';
 import { BLOCK_SIZES } from './sizes';
 
-const DEFAULT_COLOR = '#FFFFFF';
-export const DEFAULT_FILL_COLLOR = '#FF0000';
+const DEFAULT_COLOR = 'transparent';
+export const DEFAULT_FILL_COLLOR = '#FFFFFF';
 
 const Block = ({
   filled,
@@ -21,9 +21,7 @@ const Block = ({
     backgroundColor: color ? color : DEFAULT_COLOR,
   };
   return (
-    <View
-      style={[{ borderRadius: 10 }, filled ? filledStyle : defaultStyle, style]}
-    />
+    <View style={[styles.block, filled ? filledStyle : defaultStyle, style]} />
   );
 };
 
@@ -72,3 +70,9 @@ export const HorizontalBlock = ({
     />
   );
 };
+
+const styles = StyleSheet.create({
+  block: {
+    borderRadius: 10,
+  },
+});

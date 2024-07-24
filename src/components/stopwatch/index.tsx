@@ -1,5 +1,5 @@
 import { type TimeProps } from '../../timer/hooks/types';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Frame } from './frame';
 import { formatToTimeString } from '../../timer/helpers';
 import { type CustomStyle, type Sizes } from './types';
@@ -25,19 +25,9 @@ const Countdown = ({
   size,
 }: Props) => {
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 10,
-        width: '100%',
-        height: 500,
-        borderWidth: 1,
-      }}
-    >
+    <View style={style.countdownContainer}>
       {showHours && (
-        <View style={{ flexDirection: 'row', gap: 10 }}>
+        <View style={style.frameContainer}>
           <Frame
             number={Number(formatToTimeString(hours).slice(0, 1))}
             size={size}
@@ -58,10 +48,12 @@ const Countdown = ({
             { separator }
           ) : (
             <Text
-              style={{
-                color: fillColor ? fillColor : DEFAULT_FILL_COLLOR,
-                fontSize: 50,
-              }}
+              style={[
+                {
+                  color: fillColor ? fillColor : DEFAULT_FILL_COLLOR,
+                },
+                style.separator,
+              ]}
             >
               :
             </Text>
@@ -69,7 +61,7 @@ const Countdown = ({
         </>
       )}
       {showMinutes && (
-        <View style={{ flexDirection: 'row', gap: 10 }}>
+        <View style={style.frameContainer}>
           <Frame
             number={Number(formatToTimeString(minutes).slice(0, 1))}
             size={size}
@@ -90,17 +82,19 @@ const Countdown = ({
             { separator }
           ) : (
             <Text
-              style={{
-                color: fillColor ? fillColor : DEFAULT_FILL_COLLOR,
-                fontSize: 50,
-              }}
+              style={[
+                {
+                  color: fillColor ? fillColor : DEFAULT_FILL_COLLOR,
+                },
+                style.separator,
+              ]}
             >
               :
             </Text>
           )}
         </>
       )}
-      <View style={{ flexDirection: 'row', gap: 10 }}>
+      <View style={style.frameContainer}>
         <Frame
           number={Number(formatToTimeString(seconds).slice(0, 1))}
           size={size}
@@ -119,3 +113,18 @@ const Countdown = ({
 };
 
 export default Countdown;
+
+const style = StyleSheet.create({
+  countdownContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  frameContainer: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  separator: {
+    fontSize: 50,
+  },
+});

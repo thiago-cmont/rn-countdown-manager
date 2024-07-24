@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { HorizontalBlock, VerticalBlock } from '../blocks';
 import { blockShouldBeFilled } from '../helpers/blockShouldBeFilled';
 import { type CustomStyle, type Sizes } from '../types';
@@ -12,59 +12,49 @@ export const Frame = ({
   return (
     <View>
       <HorizontalBlock
-        filled={blockShouldBeFilled({ framePosition: 1, number })}
-        style={{ marginBottom: 2 }}
+        filled={blockShouldBeFilled({ framePosition: 'a', number })}
+        style={style.aBlock}
         size={size}
         fillColor={fillColor}
         color={color}
       />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}
-      >
+      <View style={style.verticalBlocksContainer}>
         <VerticalBlock
-          filled={blockShouldBeFilled({ framePosition: 2, number })}
+          filled={blockShouldBeFilled({ framePosition: 'f', number })}
           size={size}
           fillColor={fillColor}
           color={color}
         />
         <VerticalBlock
-          filled={blockShouldBeFilled({ framePosition: 3, number })}
+          filled={blockShouldBeFilled({ framePosition: 'b', number })}
           size={size}
           fillColor={fillColor}
           color={color}
         />
       </View>
       <HorizontalBlock
-        filled={blockShouldBeFilled({ framePosition: 4, number })}
+        filled={blockShouldBeFilled({ framePosition: 'g', number })}
         size={size}
         fillColor={fillColor}
         color={color}
       />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}
-      >
+      <View style={style.verticalBlocksContainer}>
         <VerticalBlock
-          filled={blockShouldBeFilled({ framePosition: 5, number })}
+          filled={blockShouldBeFilled({ framePosition: 'e', number })}
           size={size}
           fillColor={fillColor}
           color={color}
         />
         <VerticalBlock
-          filled={blockShouldBeFilled({ framePosition: 6, number })}
+          filled={blockShouldBeFilled({ framePosition: 'c', number })}
           size={size}
           fillColor={fillColor}
           color={color}
         />
       </View>
       <HorizontalBlock
-        filled={blockShouldBeFilled({ framePosition: 7, number })}
-        style={{ marginTop: 2 }}
+        filled={blockShouldBeFilled({ framePosition: 'd', number })}
+        style={style.dBlock}
         size={size}
         fillColor={fillColor}
         color={color}
@@ -72,3 +62,16 @@ export const Frame = ({
     </View>
   );
 };
+
+const style = StyleSheet.create({
+  aBlock: {
+    marginBottom: 2,
+  },
+  dBlock: {
+    marginTop: 2,
+  },
+  verticalBlocksContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+});
