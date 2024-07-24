@@ -3,6 +3,8 @@ import {
   type TimeProps,
   type UseCountdownProps,
   type UseCountdownReturn,
+  type ZERO_TO_FIFTY_NINE,
+  type ZERO_TO_NINETY_NINE,
 } from './types';
 import { getInitialTime } from '../helpers/getInitialTime';
 import useInterval from './useInterval';
@@ -24,7 +26,6 @@ const useCountdown = ({
 
   const { onStart, onStop, started } = useInterval({
     callback: () => {
-      console.log(getFormattedTime(remainingTime));
       setRemainingTime((time) => {
         if (time - 1000 <= 0) {
           onStop?.();
@@ -70,9 +71,9 @@ const useCountdown = ({
     resume,
     isFinished,
     start: onStart!,
-    hours: getHours(remainingTime),
-    minutes: getMinutes(remainingTime),
-    seconds: getSeconds(remainingTime),
+    hours: getHours(remainingTime) as ZERO_TO_NINETY_NINE,
+    minutes: getMinutes(remainingTime) as ZERO_TO_FIFTY_NINE,
+    seconds: getSeconds(remainingTime) as ZERO_TO_FIFTY_NINE,
     formattedTime: getFormattedTime(remainingTime),
   };
 };

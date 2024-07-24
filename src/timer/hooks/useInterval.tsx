@@ -6,12 +6,10 @@ const useInterval = ({ callback }: UseIntervalProps): UseIntervalReturn => {
   const [stoped, setStoped] = useState(false);
 
   const onStart = () => {
-    console.log('START');
     setStarted(true);
     setStoped(false);
   };
   const onStop = () => {
-    console.log('STOP');
     setStoped(true);
     setStarted(false);
   };
