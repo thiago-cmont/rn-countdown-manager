@@ -6,9 +6,9 @@ Manage countdowns and get a cool visual component!
   <img src="img/countdown.gif" alt="Countdown" width="300">
 </p>
 
-## Instalation
+## Installation
 
-Currently the lib is still under development :disappointed:
+Currently, the lib is still under development :disappointed:
 
 ## Usage
 
@@ -24,7 +24,7 @@ const {
   pause, // pauses the hook
   resume, // resume the hook if is paused
   start, // start hook if autoStart prop is false
-  reset, // reset the hook passing a new hour,minute and second
+  reset, // reset the hook passing a new hour, minute and second
   formattedTime, // time formatted as HH:MM:SS
   hours, // current hours
   minutes, // curent minutes
@@ -48,8 +48,8 @@ import { Countdown, useCountdown } from 'react-native-countdown';
   minutes={minutes} // minutes on component (Max to 59)
   seconds={seconds} // seconds on component (Max to 59)
   fillColor="red" // cell color when on (defaults to #FFFFFF)
-  color="black" // cell color when off (defaults to tansparent)
-  separator=":" // separate blocks of 2 digits, e.g: if separator is "-" time will be HH-MM-SS
+  color="black" // cell color when off (defaults to transparent)
+  separator=":" // separate blocks of 2 digits, e.g: if the separator is "-" time will be HH-MM-SS
   showHours={true} // if hours digits should be shown
   showMinutes={true} // if minutes digits should be shown
   size="md" // Component size, can be "sm", "md" or "lg"
