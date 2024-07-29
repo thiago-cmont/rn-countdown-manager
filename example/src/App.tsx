@@ -16,7 +16,7 @@ import {
   useCountdown,
   ZERO_TO_FIFTY_NINE,
   ZERO_TO_NINETY_NINE,
-} from 'react-native-countdown';
+} from 'rn-countdown';
 
 const App = () => {
   const {

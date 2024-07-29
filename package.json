@@ -1,5 +1,5 @@
 {
-  "name": "react-native-countdown",
+  "name": "rn-countdown",
   "version": "0.1.0",
   "description": "Countdown component and stopwatch hook",
   "source": "./src/index.tsx",
@@ -32,7 +32,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-countdown-example",
+    "example": "yarn workspace rn-countdown-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -47,14 +47,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thiago-cmont/react-native-countdown.git"
+    "url": "git+https://github.com/thiago-cmont/rn-countdown.git"
   },
   "author": "Thiago Correia  <thiagocorreiamonteiro@gmail.com> (https://github.com/thiago-cmont)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thiago-cmont/react-native-countdown/issues"
+    "url": "https://github.com/thiago-cmont/rn-countdown/issues"
   },
-  "homepage": "https://github.com/thiago-cmont/react-native-countdown#readme",
+  "homepage": "https://github.com/thiago-cmont/rn-countdown#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

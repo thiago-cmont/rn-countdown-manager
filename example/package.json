@@ -1,5 +1,5 @@
 {
-  "name": "react-native-countdown-example",
+  "name": "rn-countdown-example",
   "version": "1.0.0",
   "main": "expo/AppEntry.js",
   "scripts": {
