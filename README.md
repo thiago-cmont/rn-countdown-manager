@@ -1,4 +1,4 @@
-## react-native-countdown
+## rn-countdown
 
 Manage countdowns and get a cool visual component!
 
@@ -15,7 +15,7 @@ Currently, the lib is still under development :disappointed:
 1. `useCountdown` hook - manages all time props and methods
 
 ```jsx
-import { useCountdown } from 'react-native-countdown';
+import { useCountdown } from 'rn-countdown';
 
 const {
   isRunning, // hook is still running
@@ -41,7 +41,7 @@ const {
 2. `Countdown` component - purely visual component, based on a 7-segment display
 
 ```jsx
-import { Countdown, useCountdown } from 'react-native-countdown';
+import { Countdown, useCountdown } from 'rn-countdown';
 
 <Countdown
   hours={hours} // hours on component (Max to 99)
