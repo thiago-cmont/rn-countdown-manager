@@ -1,4 +1,4 @@
-import { renderHook, waitFor } from '@testing-library/react-native';
+import { renderHook, waitFor, act } from '@testing-library/react-native';
 import { useCountdown } from '../timer';
 
 //MOCKS
@@ -20,7 +20,9 @@ describe('useCountdown hook tests', () => {
 
     result.current.start();
 
-    jest.advanceTimersByTime(5000);
+    act(() => {
+      jest.advanceTimersByTime(5000);
+    });
 
     await waitFor(() => {
       expect(result.current.isFinished).toBeTruthy();
@@ -71,7 +73,9 @@ describe('useCountdown hook tests', () => {
     );
 
     // onComplete will run on the next tick of uesInterval
-    jest.advanceTimersByTime(6000);
+    act(() => {
+      jest.advanceTimersByTime(6000);
+    });
 
     await waitFor(() => {
       expect(result.current.isFinished).toBeTruthy();
@@ -92,7 +96,9 @@ describe('useCountdown hook tests', () => {
     );
 
     // skip 1 hour, 10 minutes and 5 seconds
-    jest.advanceTimersByTime(4205000);
+    act(() => {
+      jest.advanceTimersByTime(4205000);
+    });
 
     await waitFor(() => {
       expect(result.current.hours).toBe(1);
@@ -115,8 +121,9 @@ describe('useCountdown hook tests', () => {
 
     result.current.reset({ minutes: 20, seconds: 15 });
 
-    jest.advanceTimersByTime(10000);
-
+    act(() => {
+      jest.advanceTimersByTime(10000);
+    });
     result.current.pause();
 
     await waitFor(() => {

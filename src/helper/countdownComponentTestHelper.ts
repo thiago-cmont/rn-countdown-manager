@@ -1,9 +1,6 @@
-import { formatToTimeString } from '../../timer/helpers';
-import {
-  TimeProps,
-  ZERO_TO_FIFTY_NINE,
-  ZERO_TO_NINETY_NINE,
-} from '../../timer/hooks/types';
+import { ZERO_TO_FIFTY_NINE, ZERO_TO_NINETY_NINE } from '../timer';
+import { formatToTimeString } from '../timer/helpers';
+import { TimeProps } from '../timer/hooks/types';
 import {
   getBlocksTestIdAndAmountFromNumberReturn,
   ZERO_TO_NINE,

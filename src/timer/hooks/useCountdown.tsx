@@ -30,6 +30,7 @@ const useCountdown = ({
         if (time - 1000 <= 0) {
           onStop?.();
           onComplete?.();
+          setIsPaused(false);
           setIsFinished(true);
           return 0;
         }
@@ -65,7 +66,7 @@ const useCountdown = ({
 
   return {
     isPaused,
-    isRunning: !isPaused && started!,
+    isRunning: !isPaused && started! && !isFinished,
     pause,
     reset,
     resume,

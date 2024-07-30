@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react-native';
 import { Countdown } from '../components';
 import { CountdownProps } from '../components/stopwatch';
-import { getBlocksTestIdAndAmountFromNumber } from './helper/countdownComponentTestHelper';
+import { getBlocksTestIdAndAmountFromNumber } from '../helper';
 import { Text } from 'react-native';
 
 //Functions
