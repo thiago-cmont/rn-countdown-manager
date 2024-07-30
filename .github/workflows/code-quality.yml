@@ -1,0 +1,82 @@
+name: 'Code Quality check'
+on:
+  pull_request:
+    branches:
+      - 'main'
+      - 'develop'
+      - 'feat/*'
+      - 'hotfix/*'
+     paths:
+      - '**/*.js'
+      - '**/*.ts'
+      - '**/*.tsx'
+      - '**/*.json'
+      - '**/*.lock'
+      - 'src/**'
+defaults:
+  run:
+    working-directory: .
+
+jobs:
+  code-quality:
+    timeout-minutes: 12
+    name: Code Quality
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['18']
+    steps:
+      - name: Checkout to branch
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+          cache-dependency-path: './package-lock.json'
+
+      - name: Install dependencies
+        run: make setup
+
+      - name: Run Linter - Reviewdog
+        uses: reviewdog/action-eslint@v1
+        if: github.event_name == 'pull_request'
+        with:
+          level: 'info'
+          workdir: '.'
+          fail_on_error: 'true'
+
+      - name: Run Linter
+        if: github.event_name != 'pull_request'
+        run: make lint
+
+      - name: Run tests and generate coverage
+        run: make coverage-test
+
+      - name: Code coverage summary report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: ./coverage/cobertura-coverage.xml
+          fail_below_min: false
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: '80 80'
+
+      - name: Add code coverage summary PR comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: code-coverage-results.md
+
+      - name: Analyse code coverage
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: ./coverage/cobertura-coverage.xml
+          fail_below_min: false
+          format: markdown
+          thresholds: '80 80'
