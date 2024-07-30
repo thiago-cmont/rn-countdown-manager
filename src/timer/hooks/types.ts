@@ -31,14 +31,14 @@ export type UseIntervalReturn = {
   started?: boolean;
 };
 
-type CreateArrayWithLengthX<
+export type CreateArrayWithLengthX<
   LENGTH extends number,
   ACC extends unknown[] = [],
 > = ACC['length'] extends LENGTH
   ? ACC
   : CreateArrayWithLengthX<LENGTH, [...ACC, 1]>;
 
-type NumericRange<
+export type NumericRange<
   START_ARR extends number[],
   END extends number,
   ACC extends number = never,
