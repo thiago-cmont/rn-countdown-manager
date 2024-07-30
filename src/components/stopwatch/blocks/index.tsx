@@ -10,8 +10,10 @@ const Block = ({
   style,
   fillColor,
   color,
+  testID,
 }: {
   filled: boolean;
+  testID?: string;
 } & ViewProps &
   CustomStyle) => {
   const filledStyle: ViewStyle = {
@@ -21,7 +23,10 @@ const Block = ({
     backgroundColor: color ? color : DEFAULT_COLOR,
   };
   return (
-    <View style={[styles.block, filled ? filledStyle : defaultStyle, style]} />
+    <View
+      style={[styles.block, filled ? filledStyle : defaultStyle, style]}
+      testID={testID}
+    />
   );
 };
 
@@ -31,9 +36,12 @@ export const VerticalBlock = ({
   size = 'md',
   fillColor,
   color,
-}: { filled: boolean; size?: Sizes } & ViewProps & CustomStyle) => {
+  testID,
+}: { filled: boolean; size?: Sizes; testID?: string } & ViewProps &
+  CustomStyle) => {
   return (
     <Block
+      testID={testID}
       filled={filled}
       fillColor={fillColor}
       color={color}
@@ -54,9 +62,12 @@ export const HorizontalBlock = ({
   size = 'md',
   fillColor,
   color,
-}: { filled: boolean; size?: Sizes } & ViewProps & CustomStyle) => {
+  testID,
+}: { filled: boolean; size?: Sizes; testID?: string } & ViewProps &
+  CustomStyle) => {
   return (
     <Block
+      testID={testID}
       filled={filled}
       fillColor={fillColor}
       color={color}

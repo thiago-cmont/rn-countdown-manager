@@ -1,4 +1,4 @@
-import { type PossibleFramePositions } from '../types';
+import { PossibleFramePositions } from '../types';
 
 const BLOCKS_FILLED_POSITION_ON_FRAME = {
   a: [2, 3, 5, 6, 7, 8, 9, 0],

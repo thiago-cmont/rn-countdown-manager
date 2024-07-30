@@ -5,10 +5,10 @@ import { formatToTimeString } from '../../timer/helpers';
 import { type CustomStyle, type Sizes } from './types';
 import { DEFAULT_FILL_COLLOR } from './blocks';
 
-type Props = {
+export type CountdownProps = {
   showHours?: boolean;
   showMinutes?: boolean;
-  separator?: React.ReactNode;
+  separator?: JSX.Element;
   size?: Sizes;
 } & TimeProps &
   CustomStyle;
@@ -23,9 +23,9 @@ const Countdown = ({
   color,
   separator,
   size,
-}: Props) => {
+}: CountdownProps) => {
   return (
-    <View style={style.countdownContainer}>
+    <View style={style.countdownContainer} testID="countdown-component">
       {showHours && (
         <View style={style.frameContainer}>
           <Frame
@@ -45,9 +45,10 @@ const Countdown = ({
       {showHours && (
         <>
           {separator ? (
-            { separator }
+            separator
           ) : (
             <Text
+              testID="separator-hh/mm-countdown-component"
               style={[
                 {
                   color: fillColor ? fillColor : DEFAULT_FILL_COLLOR,
@@ -79,9 +80,10 @@ const Countdown = ({
       {showMinutes && (
         <>
           {separator ? (
-            { separator }
+            separator
           ) : (
             <Text
+              testID="separator-mm/ss-countdown-component"
               style={[
                 {
                   color: fillColor ? fillColor : DEFAULT_FILL_COLLOR,
