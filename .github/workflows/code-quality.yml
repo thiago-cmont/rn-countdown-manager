@@ -14,16 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - uses: reviewdog/action-eslint@v1
-      if: github.event_name == 'pull_request'
-        with:
-          level: 'info'
-          workdir: '.'
-          fail_on_error: 'true'
-      if: github.event_name != 'pull_request'
-        run: make lint
         with:
           node-version: 18.x
       - run: yarn
-      - run:
+      - run: yarn lint
       - run: yarn jest
