@@ -12,13 +12,6 @@ on:
       - 'main'
       - 'feat/*'
       - 'hotfix/*'
-    paths:
-      - '**/*.js'
-      - '**/*.ts'
-      - '**/*.tsx'
-      - '**/*.json'
-      - '**/*.lock'
-      - 'src/**'
 
 defaults:
   run:
