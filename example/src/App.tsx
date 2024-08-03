@@ -17,6 +17,7 @@ import {
   ZERO_TO_FIFTY_NINE,
   ZERO_TO_NINETY_NINE,
 } from 'rn-countdown-manager';
+import { customAssets } from './assets';
 
 const App = () => {
   const {
@@ -40,8 +41,8 @@ const App = () => {
   const [formHours, setFormHours] = useState<ZERO_TO_NINETY_NINE>();
   const [formMinutes, setFormMinutes] = useState<ZERO_TO_FIFTY_NINE>();
   const [formSeconds, setFormSeconds] = useState<ZERO_TO_FIFTY_NINE>();
-  const [showHours, setShowHours] = useState(true);
-  const [showMinutes, setShowMinutes] = useState(true);
+  const [showHours, setShowHours] = useState(false);
+  const [showMinutes, setShowMinutes] = useState(false);
 
   return (
     <KeyboardAvoidingView
@@ -66,6 +67,7 @@ const App = () => {
               seconds={seconds}
               minutes={minutes}
               fillColor="#000000"
+              customAssets={customAssets}
             />
             <View style={styles.row}>
               <View style={styles.switchContainer}>
