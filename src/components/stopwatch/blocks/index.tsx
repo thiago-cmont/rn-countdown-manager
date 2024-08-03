@@ -1,5 +1,5 @@
 import { StyleSheet, View, type ViewProps, type ViewStyle } from 'react-native';
-import { type CustomStyle, type Sizes } from '../types';
+import { CustomBlockAssets, type CustomStyle, type Sizes } from '../types';
 import { BLOCK_SIZES } from './sizes';
 
 const DEFAULT_COLOR = 'transparent';
@@ -37,7 +37,11 @@ export const VerticalBlock = ({
   fillColor,
   color,
   testID,
-}: { filled: boolean; size?: Sizes; testID?: string } & ViewProps &
+}: {
+  filled: boolean;
+  size?: Sizes;
+  testID?: string;
+} & ViewProps &
   CustomStyle) => {
   return (
     <Block
@@ -63,7 +67,12 @@ export const HorizontalBlock = ({
   fillColor,
   color,
   testID,
-}: { filled: boolean; size?: Sizes; testID?: string } & ViewProps &
+}: {
+  filled: boolean;
+  size?: Sizes;
+  testID?: string;
+  customAssets?: CustomBlockAssets;
+} & ViewProps &
   CustomStyle) => {
   return (
     <Block

@@ -27,8 +27,6 @@ const useInterval = ({ callback }: UseIntervalProps): UseIntervalReturn => {
     }
     return () => {
       clearInterval(id);
-      setStarted(false);
-      setStoped(false);
     };
   }, [started, stoped, callback]);
 
