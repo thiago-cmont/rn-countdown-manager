@@ -1,15 +1,17 @@
 import { type TimeProps } from '../../timer/hooks/types';
 import { StyleSheet, Text, View } from 'react-native';
-import { Frame } from './frame';
+import { Frame, FrameCustom } from './frame';
 import { formatToTimeString } from '../../timer/helpers';
-import { type CustomStyle, type Sizes } from './types';
+import { CustomFrameAssets, type CustomStyle, type Sizes } from './types';
 import { DEFAULT_FILL_COLLOR } from './blocks';
+import { getCustomBlockAssetsFromFrameAssets } from './helpers/getCustomAssets';
 
 export type CountdownProps = {
   showHours?: boolean;
   showMinutes?: boolean;
   separator?: JSX.Element;
   size?: Sizes;
+  customAssets?: CustomFrameAssets;
 } & TimeProps &
   CustomStyle;
 
@@ -23,7 +25,11 @@ const Countdown = ({
   color,
   separator,
   size,
+  customAssets,
 }: CountdownProps) => {
+  if (customAssets) {
+    console.log(getCustomBlockAssetsFromFrameAssets('a', customAssets));
+  }
   return (
     <View style={style.countdownContainer} testID="countdown-component">
       {showHours && (
@@ -33,12 +39,14 @@ const Countdown = ({
             size={size}
             fillColor={fillColor}
             color={color}
+            customAssets={customAssets}
           />
           <Frame
             number={Number(formatToTimeString(hours).slice(1))}
             size={size}
             fillColor={fillColor}
             color={color}
+            customAssets={customAssets}
           />
         </View>
       )}
@@ -68,12 +76,14 @@ const Countdown = ({
             size={size}
             fillColor={fillColor}
             color={color}
+            customAssets={customAssets}
           />
           <Frame
             number={Number(formatToTimeString(minutes).slice(1))}
             size={size}
             fillColor={fillColor}
             color={color}
+            customAssets={customAssets}
           />
         </View>
       )}
@@ -97,17 +107,19 @@ const Countdown = ({
         </>
       )}
       <View style={style.frameContainer}>
-        <Frame
+        <FrameCustom
           number={Number(formatToTimeString(seconds).slice(0, 1))}
           size={size}
           fillColor={fillColor}
           color={color}
+          customAssets={customAssets!!}
         />
-        <Frame
+        <FrameCustom
           number={Number(formatToTimeString(seconds).slice(1))}
           size={size}
           fillColor={fillColor}
           color={color}
+          customAssets={customAssets!!}
         />
       </View>
     </View>
