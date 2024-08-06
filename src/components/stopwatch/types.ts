@@ -30,7 +30,7 @@ export type BlockAssetType = {
   offAsset?: React.FC;
   position?: Pick<ViewStyle, 'top' | 'bottom' | 'left' | 'right'>;
 };
-export type CustomBlockType = {
+export type CustomBlocksType = {
   a: BlockAssetType;
   b: BlockAssetType;
   c: BlockAssetType;

@@ -1,4 +1,4 @@
-export { Countdown, CustomBlockType } from './components';
+export { Countdown, CustomBlocksType } from './components';
 export {
   useCountdown,
   ZERO_TO_FIFTY_NINE,

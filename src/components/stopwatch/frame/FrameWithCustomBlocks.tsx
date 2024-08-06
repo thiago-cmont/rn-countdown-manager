@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { blockShouldBeOff } from '../helpers/blockShouldBeOff';
-import { CustomBlockType, PossibleFramePositions } from '../types';
+import { CustomBlocksType, PossibleFramePositions } from '../types';
 import React, { SVGProps, useCallback } from 'react';
 
 export const FrameWithcustomBlocks = ({
@@ -8,7 +8,7 @@ export const FrameWithcustomBlocks = ({
   customBlocks,
 }: {
   number: number;
-  customBlocks: CustomBlockType;
+  customBlocks: CustomBlocksType;
 }) => {
   const CustomBlock = useCallback(
     ({ position }: { position: PossibleFramePositions }) => {
