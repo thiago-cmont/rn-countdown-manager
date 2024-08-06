@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { CustomBlockType, Sizes } from './types';
+import { CustomBlocksType, Sizes } from './types';
 import { Frame, FrameWithcustomBlocks } from './frame';
 import { formatToTimeString } from '../../timer/helpers';
 
@@ -8,7 +8,7 @@ type Props = {
   size?: Sizes;
   offColor?: string;
   color?: string;
-  customBlocks?: CustomBlockType;
+  customBlocks?: CustomBlocksType;
   time?: number;
 };
 export const TimeBlock = ({

@@ -1,6 +1,6 @@
 import { type TimeProps } from '../../timer/hooks/types';
 import { StyleSheet, View } from 'react-native';
-import { CustomBlockType, type CustomStyle, type Sizes } from './types';
+import { CustomBlocksType, type CustomStyle, type Sizes } from './types';
 import { TimeBlock } from './TimeBlock';
 import React from 'react';
 import { Separator } from './Separator';
@@ -10,7 +10,7 @@ export type CountdownProps = {
   showMinutes?: boolean;
   CustomSeparator?: React.FC;
   size?: Sizes;
-  customBlocks?: CustomBlockType;
+  customBlocks?: CustomBlocksType;
 } & TimeProps &
   CustomStyle;
 

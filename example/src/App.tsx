@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {
   Countdown,
-  CustomBlockType,
+  CustomBlocksType,
   useCountdown,
   ZERO_TO_FIFTY_NINE,
   ZERO_TO_NINETY_NINE,
@@ -45,7 +45,7 @@ const App = () => {
   const [showHours, setShowHours] = useState(false);
   const [showMinutes, setShowMinutes] = useState(false);
   const [customBlockAssets, setCustomblockAssets] = useState<
-    CustomBlockType | undefined
+    CustomBlocksType | undefined
   >();
 
   return (
