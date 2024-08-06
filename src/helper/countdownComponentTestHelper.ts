@@ -33,13 +33,13 @@ export const iterateMap = (
     FILLED_BLOCKS_BY_NUMBER[Number(secondDigit) as ZERO_TO_NINE];
 
   blocksInFirstDigit.forEach((block) => {
-    const testID = `${block}-filled-block-frame-countdown-component`;
+    const testID = `${block}-block-frame-countdown-component`;
     const currentAmount = blocksMap.get(testID) || 0;
     blocksMap.set(testID, currentAmount + 1);
   });
 
   blocksInSecondDigit.forEach((block) => {
-    const testID = `${block}-filled-block-frame-countdown-component`;
+    const testID = `${block}-block-frame-countdown-component`;
     const currentAmount = blocksMap.get(testID) || 0;
     blocksMap.set(testID, currentAmount + 1);
   });
@@ -53,13 +53,13 @@ export const getBlocksTestIdAndAmountFromNumber = ({
   seconds,
 }: TimeProps): getBlocksTestIdAndAmountFromNumberReturn => {
   const addedBlocks = new Map([
-    ['a-filled-block-frame-countdown-component', 0],
-    ['b-filled-block-frame-countdown-component', 0],
-    ['c-filled-block-frame-countdown-component', 0],
-    ['d-filled-block-frame-countdown-component', 0],
-    ['e-filled-block-frame-countdown-component', 0],
-    ['f-filled-block-frame-countdown-component', 0],
-    ['g-filled-block-frame-countdown-component', 0],
+    ['a-block-frame-countdown-component', 0],
+    ['b-block-frame-countdown-component', 0],
+    ['c-block-frame-countdown-component', 0],
+    ['d-block-frame-countdown-component', 0],
+    ['e-block-frame-countdown-component', 0],
+    ['f-block-frame-countdown-component', 0],
+    ['g-block-frame-countdown-component', 0],
   ]);
   let mapWithHours;
   let mapWithMinutes;

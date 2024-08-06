@@ -1,44 +1,44 @@
-import { StyleSheet, View, type ViewProps, type ViewStyle } from 'react-native';
-import { CustomBlockAssets, type CustomStyle, type Sizes } from '../types';
+import { StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
+import { CustomStyle, Sizes } from '../types';
 import { BLOCK_SIZES } from './sizes';
 
-const DEFAULT_COLOR = 'transparent';
-export const DEFAULT_FILL_COLLOR = '#FFFFFF';
+const DEFAULT_OFF_COLOR = 'transparent';
+export const DEFAULT_COLOR = '#000000';
 
 const Block = ({
-  filled,
+  blockIsOff,
   style,
-  fillColor,
+  offColor,
   color,
   testID,
 }: {
-  filled: boolean;
+  blockIsOff: boolean;
   testID?: string;
 } & ViewProps &
   CustomStyle) => {
-  const filledStyle: ViewStyle = {
-    backgroundColor: fillColor ? fillColor : DEFAULT_FILL_COLLOR,
-  };
   const defaultStyle: ViewStyle = {
-    backgroundColor: color ? color : DEFAULT_COLOR,
+    backgroundColor: color || DEFAULT_COLOR,
+  };
+  const offStyle: ViewStyle = {
+    backgroundColor: offColor || DEFAULT_OFF_COLOR,
   };
   return (
     <View
-      style={[styles.block, filled ? filledStyle : defaultStyle, style]}
+      style={[styles.block, blockIsOff ? offStyle : defaultStyle, style]}
       testID={testID}
     />
   );
 };
 
 export const VerticalBlock = ({
-  filled,
+  blockIsOff,
   style,
   size = 'md',
-  fillColor,
+  offColor,
   color,
   testID,
 }: {
-  filled: boolean;
+  blockIsOff: boolean;
   size?: Sizes;
   testID?: string;
 } & ViewProps &
@@ -46,8 +46,8 @@ export const VerticalBlock = ({
   return (
     <Block
       testID={testID}
-      filled={filled}
-      fillColor={fillColor}
+      blockIsOff={blockIsOff}
+      offColor={offColor}
       color={color}
       style={[
         style,
@@ -61,24 +61,23 @@ export const VerticalBlock = ({
 };
 
 export const HorizontalBlock = ({
-  filled,
+  blockIsOff,
   style,
   size = 'md',
-  fillColor,
+  offColor,
   color,
   testID,
 }: {
-  filled: boolean;
+  blockIsOff: boolean;
   size?: Sizes;
   testID?: string;
-  customAssets?: CustomBlockAssets;
 } & ViewProps &
   CustomStyle) => {
   return (
     <Block
       testID={testID}
-      filled={filled}
-      fillColor={fillColor}
+      blockIsOff={blockIsOff}
+      offColor={offColor}
       color={color}
       style={[
         style,
