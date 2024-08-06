@@ -12,8 +12,8 @@ import FBlock from './f.svg';
 import FOffBlock from './f-off.svg';
 import GBlock from './g.svg';
 import GOffBlock from './g-off.svg';
-import { CustomBlockType } from 'rn-countdown';
-export const customBlocks: CustomBlockType = {
+import { CustomBlocksType } from 'rn-countdown';
+export const customBlocks: CustomBlocksType = {
   a: {
     asset: ABlock,
     customOffAsset: true,
