@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import { HorizontalBlock, VerticalBlock } from '../blocks';
-import { blockShouldBeFilled } from '../helpers/blockShouldBeFilled';
+import { HorizontalBlock, VerticalBlock } from '../block';
+import { blockShouldBeOff } from '../helpers/blockShouldBeOff';
 import { type CustomStyle, type Sizes } from '../types';
 import { getFilledTestID } from '../helpers/filledTestID';
 
@@ -8,7 +8,7 @@ export const Frame = ({
   number,
   size,
   color,
-  fillColor,
+  offColor,
 }: {
   number: number;
   size?: Sizes;
@@ -18,77 +18,77 @@ export const Frame = ({
       <HorizontalBlock
         testID={getFilledTestID({
           framePosition: 'a',
-          filled: blockShouldBeFilled({ framePosition: 'a', number }),
+          blockIsOff: blockShouldBeOff({ framePosition: 'a', number }),
         })}
-        filled={blockShouldBeFilled({ framePosition: 'a', number })}
+        blockIsOff={blockShouldBeOff({ framePosition: 'a', number })}
         style={style.aBlock}
         size={size}
-        fillColor={fillColor}
+        offColor={offColor}
         color={color}
       />
       <View style={style.verticalBlocksContainer}>
         <VerticalBlock
           testID={getFilledTestID({
             framePosition: 'f',
-            filled: blockShouldBeFilled({ framePosition: 'f', number }),
+            blockIsOff: blockShouldBeOff({ framePosition: 'f', number }),
           })}
-          filled={blockShouldBeFilled({ framePosition: 'f', number })}
+          blockIsOff={blockShouldBeOff({ framePosition: 'f', number })}
           size={size}
-          fillColor={fillColor}
+          offColor={offColor}
           color={color}
         />
         <VerticalBlock
           testID={getFilledTestID({
             framePosition: 'b',
-            filled: blockShouldBeFilled({ framePosition: 'b', number }),
+            blockIsOff: blockShouldBeOff({ framePosition: 'b', number }),
           })}
-          filled={blockShouldBeFilled({ framePosition: 'b', number })}
+          blockIsOff={blockShouldBeOff({ framePosition: 'b', number })}
           size={size}
-          fillColor={fillColor}
+          offColor={offColor}
           color={color}
         />
       </View>
       <HorizontalBlock
         testID={getFilledTestID({
           framePosition: 'g',
-          filled: blockShouldBeFilled({ framePosition: 'g', number }),
+          blockIsOff: blockShouldBeOff({ framePosition: 'g', number }),
         })}
-        filled={blockShouldBeFilled({ framePosition: 'g', number })}
+        blockIsOff={blockShouldBeOff({ framePosition: 'g', number })}
         size={size}
-        fillColor={fillColor}
+        offColor={offColor}
         color={color}
       />
       <View style={style.verticalBlocksContainer}>
         <VerticalBlock
           testID={getFilledTestID({
             framePosition: 'e',
-            filled: blockShouldBeFilled({ framePosition: 'e', number }),
+            blockIsOff: blockShouldBeOff({ framePosition: 'e', number }),
           })}
-          filled={blockShouldBeFilled({ framePosition: 'e', number })}
+          blockIsOff={blockShouldBeOff({ framePosition: 'e', number })}
           size={size}
-          fillColor={fillColor}
+          offColor={offColor}
           color={color}
         />
         <VerticalBlock
           testID={getFilledTestID({
             framePosition: 'c',
-            filled: blockShouldBeFilled({ framePosition: 'c', number }),
+            blockIsOff: blockShouldBeOff({ framePosition: 'c', number }),
           })}
-          filled={blockShouldBeFilled({ framePosition: 'c', number })}
+          blockIsOff={blockShouldBeOff({ framePosition: 'c', number })}
           size={size}
-          fillColor={fillColor}
+          offColor={offColor}
           color={color}
         />
       </View>
       <HorizontalBlock
         testID={getFilledTestID({
           framePosition: 'd',
-          filled: blockShouldBeFilled({ framePosition: 'd', number }),
+          blockIsOff: blockShouldBeOff({ framePosition: 'd', number }),
         })}
-        filled={blockShouldBeFilled({ framePosition: 'd', number })}
+        blockIsOff={blockShouldBeOff({ framePosition: 'd', number })}
         style={style.dBlock}
         size={size}
-        fillColor={fillColor}
+        offColor={offColor}
         color={color}
       />
     </View>

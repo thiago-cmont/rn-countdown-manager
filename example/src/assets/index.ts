@@ -1,30 +1,59 @@
 import ABlock from './a.svg';
-import AFilledBlock from './a-filled.svg';
+import AOffBlock from './a-off.svg';
 import BBlock from './b.svg';
-import BFilledBlock from './b-filled.svg';
+import BOffBlock from './b-off.svg';
 import CBlock from './c.svg';
-import CFilledBlock from './c-filled.svg';
+import COffBlock from './c-off.svg';
 import DBlock from './d.svg';
-import DFilledBlock from './d-filled.svg';
+import DOffBlock from './d-off.svg';
 import EBlock from './e.svg';
-import EFilledBlock from './e-filled.svg';
+import EOffBlock from './e-off.svg';
 import FBlock from './f.svg';
-import FFilledBlock from './f-filled.svg';
+import FOffBlock from './f-off.svg';
 import GBlock from './g.svg';
-import GFilledBlock from './g-filled.svg';
-export const customAssets = {
-  a: ABlock,
-  aFilled: AFilledBlock,
-  b: BBlock,
-  bFilled: BFilledBlock,
-  c: CBlock,
-  cFilled: CFilledBlock,
-  d: DBlock,
-  dFilled: DFilledBlock,
-  e: EBlock,
-  eFilled: EFilledBlock,
-  f: FBlock,
-  fFilled: FFilledBlock,
-  g: GBlock,
-  gFilled: GFilledBlock,
+import GOffBlock from './g-off.svg';
+import { CustomBlockType } from 'rn-countdown';
+export const customBlocks: CustomBlockType = {
+  a: {
+    asset: ABlock,
+    customOffAsset: true,
+    offAsset: AOffBlock,
+    position: { top: 8 },
+  },
+  b: {
+    asset: BBlock,
+    customOffAsset: true,
+    offAsset: BOffBlock,
+    position: {},
+  },
+  c: {
+    asset: CBlock,
+    customOffAsset: true,
+    offAsset: COffBlock,
+    position: { bottom: 8, right: 3 },
+  },
+  d: {
+    asset: DBlock,
+    customOffAsset: true,
+    offAsset: DOffBlock,
+    position: { bottom: 17, right: 6 },
+  },
+  e: {
+    asset: EBlock,
+    customOffAsset: true,
+    offAsset: EOffBlock,
+    position: { right: 6, bottom: 8 },
+  },
+  f: {
+    asset: FBlock,
+    customOffAsset: true,
+    offAsset: FOffBlock,
+    position: { right: 2 },
+  },
+  g: {
+    asset: GBlock,
+    customOffAsset: true,
+    offAsset: GOffBlock,
+    position: { left: 1, bottom: 4 },
+  },
 };

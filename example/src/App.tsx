@@ -13,11 +13,12 @@ import {
 } from 'react-native';
 import {
   Countdown,
+  CustomBlockType,
   useCountdown,
   ZERO_TO_FIFTY_NINE,
   ZERO_TO_NINETY_NINE,
 } from 'rn-countdown';
-import { customAssets } from './assets';
+import { customBlocks } from './assets';
 
 const App = () => {
   const {
@@ -43,6 +44,9 @@ const App = () => {
   const [formSeconds, setFormSeconds] = useState<ZERO_TO_FIFTY_NINE>();
   const [showHours, setShowHours] = useState(false);
   const [showMinutes, setShowMinutes] = useState(false);
+  const [customBlockAssets, setCustomblockAssets] = useState<
+    CustomBlockType | undefined
+  >();
 
   return (
     <KeyboardAvoidingView
@@ -66,12 +70,12 @@ const App = () => {
               hours={hours}
               seconds={seconds}
               minutes={minutes}
-              fillColor="#000000"
-              customAssets={customAssets}
+              color="red"
+              customBlocks={customBlockAssets}
             />
             <View style={styles.row}>
               <View style={styles.switchContainer}>
-                <Text style={[styles.text, styles.boldText]}>Show Hours</Text>
+                <Text style={[styles.text, styles.boldText]}> HH</Text>
                 <Switch
                   trackColor={{ true: '#b1b1b1b1', false: '#f1f1f1f1' }}
                   thumbColor={showHours ? '#000000' : '#b3b3b3b3'}
@@ -80,12 +84,30 @@ const App = () => {
                 />
               </View>
               <View style={styles.switchContainer}>
-                <Text style={[styles.text, styles.boldText]}>Show Minutes</Text>
+                <Text style={[styles.text, styles.boldText]}> MM</Text>
                 <Switch
                   trackColor={{ true: '#b1b1b1b1', false: '#f1f1f1f1' }}
                   thumbColor={showMinutes ? '#000000' : '#b3b3b3b3'}
                   value={showMinutes}
                   onValueChange={() => setShowMinutes(!showMinutes)}
+                />
+              </View>
+              <View style={styles.switchContainer}>
+                <Text style={[styles.text, styles.boldText]}>
+                  Custom Assets
+                </Text>
+                <Switch
+                  trackColor={{ true: '#b1b1b1b1', false: '#f1f1f1f1' }}
+                  thumbColor={customBlockAssets ? '#000000' : '#b3b3b3b3'}
+                  value={!!customBlockAssets}
+                  onValueChange={() => {
+                    setCustomblockAssets((prev) => {
+                      if (prev) {
+                        return undefined;
+                      }
+                      return customBlocks;
+                    });
+                  }}
                 />
               </View>
             </View>

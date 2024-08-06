@@ -10,12 +10,12 @@ const BLOCKS_FILLED_POSITION_ON_FRAME = {
   g: [2, 3, 4, 5, 6, 8, 9],
 };
 
-export const blockShouldBeFilled = ({
+export const blockShouldBeOff = ({
   number,
   framePosition,
 }: {
   number: number;
   framePosition: PossibleFramePositions;
 }): boolean => {
-  return BLOCKS_FILLED_POSITION_ON_FRAME[framePosition].includes(number);
+  return !BLOCKS_FILLED_POSITION_ON_FRAME[framePosition].includes(number);
 };
