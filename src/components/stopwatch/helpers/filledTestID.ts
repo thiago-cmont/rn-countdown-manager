@@ -1,9 +1,9 @@
 export const getFilledTestID = ({
   framePosition,
-  filled,
+  blockIsOff,
 }: {
   framePosition: string;
-  filled: boolean;
+  blockIsOff: boolean;
 }) => {
-  return `${framePosition}${filled ? '-filled' : ''}-block-frame-countdown-component`;
+  return `${framePosition}${blockIsOff ? '-off' : ''}-block-frame-countdown-component`;
 };

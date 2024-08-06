@@ -1,2 +1,2 @@
-export * from './frame';
-export * from './frameCustomAsset';
+export * from './Frame';
+export * from './FrameWithCustomBlocks';

@@ -11,6 +11,15 @@ const renderCountdown = (props: CountdownProps) => {
 
 //Mocks
 jest.useFakeTimers();
+const customBlocksMock = {
+  a: { asset: () => <></> },
+  b: { asset: () => <></> },
+  c: { asset: () => <></> },
+  d: { asset: () => <></> },
+  e: { asset: () => <></> },
+  f: { asset: () => <></> },
+  g: { asset: () => <></> },
+};
 
 describe('Countdown component', () => {
   it('Should render component with right props', () => {
@@ -45,7 +54,7 @@ describe('Countdown component', () => {
   });
 
   it('should not render hours if showHours is false', () => {
-    const { getAllByTestId, queryByTestId, getByTestId } = renderCountdown({
+    const { getAllByTestId } = renderCountdown({
       hours: 12,
       minutes: 30,
       seconds: 10,
@@ -53,21 +62,14 @@ describe('Countdown component', () => {
     });
 
     const frames = getAllByTestId('frame-countdown-component').length;
-
-    const separatorHour_Minute = queryByTestId(
-      'separator-hh/mm-countdown-component'
-    );
-    const separatorMinute_Second = getByTestId(
-      'separator-mm/ss-countdown-component'
-    );
+    const separators = getAllByTestId('separator-countdown-component').length;
 
     expect(frames).toBe(4);
-    expect(separatorHour_Minute).toBeFalsy();
-    expect(separatorMinute_Second).toBeTruthy();
+    expect(separators).toBe(1);
   });
 
   it('should not render minutes if showMinutes is false', () => {
-    const { getAllByTestId, queryByTestId } = renderCountdown({
+    const { getAllByTestId, queryAllByTestId } = renderCountdown({
       hours: 12,
       minutes: 30,
       seconds: 10,
@@ -76,16 +78,9 @@ describe('Countdown component', () => {
     });
 
     const frames = getAllByTestId('frame-countdown-component').length;
+    const separators = queryAllByTestId('separator-countdown-component').length;
 
-    const separatorHour_Minute = queryByTestId(
-      'separator-hh/mm-countdown-component'
-    );
-    const separatorMinute_Second = queryByTestId(
-      'separator-mm/ss-countdown-component'
-    );
-
-    expect(separatorHour_Minute).toBeFalsy();
-    expect(separatorMinute_Second).toBeFalsy();
+    expect(separators).toBe(0);
     expect(frames).toBe(2);
   });
 
@@ -94,11 +89,28 @@ describe('Countdown component', () => {
       hours: 12,
       minutes: 30,
       seconds: 10,
-      separator: <Text testID="custom-separator">Custom separator</Text>,
+      CustomSeparator: () => (
+        <Text testID="custom-separator">Custom separator</Text>
+      ),
     });
 
     const frames = getAllByTestId('custom-separator').length;
 
     expect(frames).toBe(2);
+  });
+
+  it('should  render custom block assets', () => {
+    const { getAllByTestId } = renderCountdown({
+      hours: 12,
+      minutes: 30,
+      seconds: 10,
+      customBlocks: customBlocksMock,
+    });
+
+    const frames = getAllByTestId(
+      'frame-with-custom-blocks-countdown-component'
+    ).length;
+
+    expect(frames).toBe(6);
   });
 });
