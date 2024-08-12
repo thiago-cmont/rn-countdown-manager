@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "rn-countdown": ["./src/index"]
+      "rn-countdown-manager": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

@@ -15,7 +15,7 @@ Currently, the lib is still under development :disappointed:
 1. `useCountdown` hook - manages all time props and methods
 
 ```jsx
-import { useCountdown } from 'rn-countdown';
+import { useCountdown } from 'rn-countdown-manager';
 
 const {
   isRunning, // hook is still running
@@ -41,7 +41,7 @@ const {
 2. `Countdown` component - purely visual component, based on a 7-segment display
 
 ```jsx
-import { Countdown } from 'rn-countdown';
+import { Countdown } from 'rn-countdown-manager';
 
 <Countdown
   hours={hours} // hours on component (Max to 99)
@@ -69,7 +69,7 @@ import {
 } from 'rn-countdown';
 ```
 
-There is also an [example](https://github.com/thiago-cmont/rn-countdown/tree/develop/example) to test all features!
+There is also an [example](https://github.com/thiago-cmont/rn-countdown-manager/tree/develop/example) to test all features!
 
 <p align="center">
   <img src="img/example.gif" alt="Countdown" width="300">

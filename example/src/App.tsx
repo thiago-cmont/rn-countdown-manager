@@ -16,7 +16,7 @@ import {
   useCountdown,
   ZERO_TO_FIFTY_NINE,
   ZERO_TO_NINETY_NINE,
-} from 'rn-countdown';
+} from 'rn-countdown-manager';
 
 const App = () => {
   const {
