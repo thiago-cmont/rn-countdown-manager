@@ -66,7 +66,7 @@ import {
   ZERO_TO_NINETY_NINE, // used on hours
   UseCountdownProps, // timer hook props
   UseCountdownReturn, // timer hook return
-} from 'rn-countdown';
+} from 'rn-countdown-manager';
 ```
 
 There is also an [example](https://github.com/thiago-cmont/rn-countdown-manager/tree/develop/example) to test all features!
