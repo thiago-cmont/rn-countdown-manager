@@ -41,23 +41,40 @@ const {
 2. `Countdown` component - purely visual component, based on a 7-segment display
 
 ```jsx
-import { Countdown, useCountdown } from 'rn-countdown';
+import { Countdown } from 'rn-countdown';
 
 <Countdown
   hours={hours} // hours on component (Max to 99)
-  minutes={minutes} // minutes on component (Max to 59)
-  seconds={seconds} // seconds on component (Max to 59)
-  fillColor="red" // cell color when on (defaults to #FFFFFF)
-  color="black" // cell color when off (defaults to transparent)
-  separator=":" // separate blocks of 2 digits, e.g: if the separator is "-" time will be HH-MM-SS
+  seconds={seconds} // minutes on component (Max to 59)
+  minutes={minutes} // seconds on component (Max to 59)
   showHours={true} // if hours digits should be shown
   showMinutes={true} // if minutes digits should be shown
-  size="md" // Component size, can be "sm", "md" or "lg"
+  color="black" // cell color when on (defaults to #000000)
+  offColor="green" // cell color when off (defaults to transparent)
+  size="md" // component size, can be "sm", "md" or "lg"
+  customBlocks={customBlockAssetsJson} // custom SVGs can be used in cells
+  CustomSeparator={() => <Text> - </Text>} // custom separator for HH:MM:SS, accepts any React.FC
 />;
 ```
 
+3. Helper types - types to help implementation
+
+```jsx
+import {
+  CustomBlocksType, // component custom assets
+  ZERO_TO_FIFTY_NINE, // used on minutes and seconds
+  ZERO_TO_NINETY_NINE, // used on hours
+  UseCountdownProps, // timer hook props
+  UseCountdownReturn, // timer hook return
+} from 'rn-countdown';
+```
+
+There is also an [example](https://github.com/thiago-cmont/rn-countdown/tree/develop/example) to test all features!
+
+<p align="center">
+  <img src="img/example.gif" alt="Countdown" width="300">
+</p>
+
 ## Upcoming features
 
-- Add custom assets to each cell; (Medium prio)
-- Add tests; (High prio)
-- Add storybook/playground; (Medium prio)
+- Add storybook/playground;
