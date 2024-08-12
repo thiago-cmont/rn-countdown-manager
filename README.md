@@ -1,4 +1,4 @@
-## rn-countdown
+## rn-countdown-manager
 
 Manage countdowns and get a cool visual component!
 
