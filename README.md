@@ -8,7 +8,7 @@ Manage countdowns and get a cool visual component!
 
 ## Installation
 
-Currently, the lib is still under development :disappointed:
+`npm install rn-countdown-manager`
 
 ## Usage
 
